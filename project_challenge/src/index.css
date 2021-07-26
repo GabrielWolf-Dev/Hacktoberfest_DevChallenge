@@ -14,6 +14,10 @@
   --green: #00d138;
 }
 
+body {
+  background-color: var(--black);
+}
+
 ul { list-style: none; }
 
 button, input[type='submit'] {
@@ -32,8 +36,8 @@ a { text-decoration: none; }
 
 .container {
   width: 100%;
-  max-width: 1280px;
-  margin: auto;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .title-bigger {
@@ -47,6 +51,7 @@ a { text-decoration: none; }
 }
 
 .paragraph {
-  font-size: 1.6rem;
+  font-size: 1.25rem;
   font-weight: 300;
+  color: var(--white);
 }

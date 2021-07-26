@@ -20,8 +20,13 @@
 }
 
 .home__title {
-    margin: 32px 0;
     color: var(--yellow);
+}
+
+.home__desc {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin: 32px;
 }
 
 .home_challenges {

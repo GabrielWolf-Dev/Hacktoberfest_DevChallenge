@@ -5,9 +5,9 @@ import './index.css';
 export function Home() {
     return (
         <main className="home">
-            <h1 className="title home__title">DevChallenge Hacktoberfest</h1>
-            <p className="paragraph home__space-desc">
-              4 Desafios em 1 projeto cumpridos com sucesso na plataforma <a target="blank" className="home__link" href="https://www.   devchallenge.com.br/challenges/5f962d59c10c2600213a4c29/details">DevChallenge</a>
+            <h1 className="title-bigger home__title">DevChallenge Hacktoberfest</h1>
+            <p className="home__desc">
+              4 Desafios em 1 projeto cumpridos com sucesso na plataforma <a target="blank" className="home__link" href="https://www.devchallenge.com.br/challenges/5f962d59c10c2600213a4c29/details">DevChallenge</a>
             </p>
 
             <ul>
@@ -19,6 +19,9 @@ export function Home() {
                 </li>
                 <li className="home_challenges">
                     <Link className="home__challenge" to="/challenge3">Desafio 3</Link>
+                </li>
+                <li className="home_challenges">
+                    <Link className="home__challenge" to="/challenge4">Desafio 4</Link>
                 </li>
             </ul>
         </main>

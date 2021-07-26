@@ -1,5 +1,10 @@
+import Header from '../Header';
+import './quiz.css';
+
 export default function FirstChallenge() {
     return(
-        <h1>Primeiro challenge</h1>
+        <>
+            <Header />
+        </>
     );
 }
