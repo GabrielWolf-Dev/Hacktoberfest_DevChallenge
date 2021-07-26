@@ -20,11 +20,13 @@ body {
 
 ul { list-style: none; }
 
-button, input[type='submit'] {
+button {
   cursor: pointer;
   background-color: transparent;
   border: 0;
 }
+
+input { display: inline-block; border: 0; }
 
 a { text-decoration: none; }
 
@@ -38,6 +40,7 @@ a { text-decoration: none; }
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .title-bigger {

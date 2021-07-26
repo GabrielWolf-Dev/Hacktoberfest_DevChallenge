@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from "./Components/Home";
 import FirstChallenge from './Components/FirstChallege';
 import SecondChallenge from './Components/SecondChallenge';
-import ThirdChallenge from './ThirdChallenge';
+import ThirdChallenge from './Components/ThirdChallenge';
 import FourthChallenge from './Components/FourthChallenge';
 
 function App() {
