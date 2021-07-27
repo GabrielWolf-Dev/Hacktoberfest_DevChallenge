@@ -30,6 +30,8 @@ input { display: inline-block; border: 0; }
 
 a { text-decoration: none; }
 
+fieldset { border: 0; }
+
 :root {
   font-size: 16px;
 }
@@ -51,6 +53,11 @@ a { text-decoration: none; }
 .title {
   font-size: 2rem;
   font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .paragraph {

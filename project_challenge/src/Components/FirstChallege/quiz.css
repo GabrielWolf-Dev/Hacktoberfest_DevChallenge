@@ -68,9 +68,134 @@
     max-width: 250px;
 }
 
+/*-- Quiz --*/
+
 .quiz {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 48px 2%;
     color: var(--white);
     display: none;
+    position: relative;
+    text-align: center;
+}
+
+.quiz__label-progress {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.quiz__progress {
+    width: 200px;
+    height: 24px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+}
+
+.quiz__progress::-webkit-progress-bar {
+    background-color: var(--white);
+    border-radius: 12px;
+    border: 0;
+}
+
+.quiz__progress::-moz-progress-bar {
+    background-color: var(--white);
+    border-radius: 12px;
+    border: 0;
+}
+
+.quiz__progress::-webkit-progress-value {
+    background-color: var(--green);
+    transition: ease-in-out .5s;
+    border-radius: 12px;
+    border: 0;
+}
+
+.quiz__progress::-moz-progress-value {
+    background-color: var(--green);
+    transition: ease-in-out .5s;
+    border-radius: 12px;
+    border: 0;
+}
+
+.anim-true {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.quiz__btn-back {
+    width: 120px;
+    height: 42px;
+    font-size: 1rem;
+    background-color: var(--blue);
+    border-radius: 12px;
+    transition: all ease-out .3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.quiz__btn-back:hover {
+    background-color: var(--blue-light);
+}
+
+.quiz__question-box {
+    width: 100%;
+    margin: 48px 0;
+    padding: 16px 2%;
+    border: 3px solid var(--yellow);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz__question-box__img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+}
+
+.quiz__question-box__form {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin: 24px 0;
+}
+
+.question-box__form__alternatives {
+    display: inline-block;
+    margin: 6px 0;
+    font-size: 1.15rem;
+}
+
+.form__alternatives__radio {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.question-box__form__sub {
+    width: 100%;
+    max-width: 120px;
+    margin-top: 16px;
+    height: 42px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--blue);
+    color: var(--white);
+    transition: all ease-out .3s;
+    display: block;
+}
+
+.question-box__form__sub:hover {
+    opacity: 0.8;
 }
 
 /*-- Classes Actives --*/

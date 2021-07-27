@@ -8,18 +8,20 @@
         {
           "id": 1,
           "image": "https://cdn.pixabay.com/photo/2015/06/24/15/45/code-820275_960_720.jpg",
+          "alt": "Código JavaScript",
           "question": "Qual a diferença entre var, let e const?",
           "answer": 1,
           "alternatives": [
             "Não há diferença",
-            "var - Escopo global e pode reatribuir o valor; <br> let - Escopo fechado e pode reatribuir o valor; <br> const - Escopo fechado e não pode reatribuir o valor.",
-            "var - Escopo global e pode reatribuir o valor; <br> let - Escopo global e pode reatribuir o valor; <br> const - Escopo fechado e pode reatribuir o valor.",
-            "var - Escopo global e não pode reatribuir o valor; <br> let - Escopo fechado e pode reatribuir o valor; <br> const - Escopo global e não pode reatribuir o valor."
+            "var - Escopo global e pode reatribuir o valor; \n let - Escopo fechado e pode reatribuir o valor; \n const - Escopo fechado e não pode reatribuir o valor.",
+            "var - Escopo global e pode reatribuir o valor; \n let - Escopo global e pode reatribuir o valor; \n const - Escopo fechado e pode reatribuir o valor.",
+            "var - Escopo global e não pode reatribuir o valor; \n let - Escopo fechado e pode reatribuir o valor; \n const - Escopo global e não pode reatribuir o valor."
           ]
         },
         {
           "id": 2,
           "image": "https://cdn.pixabay.com/photo/2016/03/27/18/54/technology-1283624_960_720.jpg",
+          "alt": "Código Jquery",
           "question": "Qual das alternativas é o '$' do Jquery para selecionar elementos do DOM em Js puro?",
           "answer": 0,
           "alternatives": [
