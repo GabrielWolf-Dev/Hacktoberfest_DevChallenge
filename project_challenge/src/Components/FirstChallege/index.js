@@ -1,5 +1,5 @@
+/* eslint-disable no-restricted-globals */
 import { useEffect, useState } from 'react';
-import { Player } from '@lottiefiles/react-lottie-player';
 
 import Header from '../Header';
 import Quiz from './Quiz';
@@ -13,9 +13,8 @@ export default function FirstChallenge() {
     const [dataMenu, setDataMenu] = useState({});
     const [isStarted, setsStarted] = useState(false);
     const [user, setUser] = useState({});
-    const [animResUser, setAnimResUser] = useState(false);
-
-    // setCorrectQuests([...correctQuests, value]);
+    const [bestUsers, setBestUsers] = useState([]);
+    
     const url = "https://raw.githubusercontent.com/GabrielWolf-Dev/Hacktoberfest_DevChallenge/main/project_challenge/api/quiz.json";
 
     useEffect(() => {
@@ -29,8 +28,17 @@ export default function FirstChallenge() {
     }, []);
 
     function backMenu() {
-        // Limpar o cache.
-        setsStarted(!isStarted);
+        const message = confirm('ATENÇÃO: Você perderá todo o seu progresso se voltar no menu.');
+        
+        if(message) {
+            setUser({});
+            setsStarted(!isStarted);
+        }
+    }
+
+    function clearStorage() {
+        localStorage.clear();
+        setBestUsers([]);
     }
 
     return(
@@ -49,10 +57,11 @@ export default function FirstChallenge() {
                             e.preventDefault();
 
                             setUser({
-                                name: new FormData(e.target).get('name'), // Depois que terminar o quiz, armazenar no localStorage para fazer o placar depois.
+                                name: e.target[0].value,
                                 score: 0
                             });
                             setsStarted(!isStarted);
+                            e.target[0].value = '';
                         }}
                     >
                         <label className="menu-quiz__label-name" htmlFor="name">Digite o seu nome</label>
@@ -71,6 +80,34 @@ export default function FirstChallenge() {
 
                     <img className="menu-quiz__img" src={dataMenu.img} alt="Logo da linguagem JavaScript" />
                 </main>
+
+                {
+                    bestUsers.length >= 2 ?
+                    <>
+                        <table className="menu-quiz__table">
+                            <thead className="menu-quiz__table__box">
+                                <tr>
+                                    <th>Posição</th>
+                                    <th>Nome</th>
+                                    <th>Pontos</th>
+                                </tr>
+                            </thead>
+                            <tbody className="menu-quiz__table__box">
+                                {bestUsers.map((bestUser, index) => {
+                                    return(
+                                        <tr key={index}>
+                                            <td>{index+1 +'ª'}</td>
+                                            <td>{bestUser.name}</td>
+                                            <td>{bestUser.score}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                        <button onClick={clearStorage} className="menu-quiz__loaderboards-clear">Limpar placar</button>
+                    </>
+                    : <article className="menu-quiz__warning-loaderboards">Junte mais pessoas para competir no placar de jogadores :)</article>
+                }
             </section>
 
             <main className={isStarted ? 'quiz quiz--active' : 'quiz'}>
@@ -96,17 +133,13 @@ export default function FirstChallenge() {
                         user={user}
                         currentQuest={currentQuest}
                         questions={questions}
-                        setAnimResUser={setAnimResUser}
+                        setsStarted={setsStarted}
+                        isStarted={isStarted}
+                        setBestUsers={setBestUsers}
                       /> 
                     : false)
                 }
             </main>
-            <Player
-                autoplay
-                src={animResUser /* Não esquecer de contribuir https://lottiefiles.com/rohit e https://lottiefiles.com/aalvs */}
-                className="anim-true"
-                speed="1.5"
-            ></Player>
         </>
     );
 }
