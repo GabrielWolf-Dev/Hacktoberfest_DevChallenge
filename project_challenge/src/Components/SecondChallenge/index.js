@@ -3,7 +3,7 @@ import Header from '../Header';
 import './chess.css';
 
 export default function SecondChallenge() {
-    const [matriz] = useState([
+    const [matrix, setMatrix] = useState([
         "0 0 0 0 0 0 0 0",
         "0 0 0 0 0 0 0 0",
         "0 0 0 0 0 0 0 0",
@@ -13,41 +13,64 @@ export default function SecondChallenge() {
         "4 0 0 0 0 0 0 4",
         "0 0 0 0 0 6 0 0",
     ]);
-    const [pecas, setPecas] = useState({
+    const objPieces = {
         peao: 0,
         bispo: 0,
         cavalo: 0,
         torre: 0,
         rainha: 0,
         rei: 0,
-    });
+    };
+    const [pieces, setPieces] = useState(objPieces);
 
     useEffect(() => {
-        matriz.forEach(matriz => {
-            const row = matriz.split(' ');
+        matrix.forEach(matrix => {
+            const row = matrix.split(' ');
 
             row.forEach(row => {
                 if(row === '1')
-                    setPecas({ ...pecas, peao: pecas.peao += 1 });
+                    setPieces({ ...pieces, peao: pieces.peao += 1 });
 
                 if(row === '2')
-                    setPecas({ ...pecas, bispo: pecas.bispo += 1 });
+                    setPieces({ ...pieces, bispo: pieces.bispo += 1 });
 
                 if(row === '3')
-                    setPecas({ ...pecas, cavalo: pecas.cavalo += 1 });
+                    setPieces({ ...pieces, cavalo: pieces.cavalo += 1 });
 
                 if(row === '4')
-                    setPecas({ ...pecas, torre: pecas.torre += 1 });
+                    setPieces({ ...pieces, torre: pieces.torre += 1 });
 
                 if(row === '5')
-                    setPecas({ ...pecas, rainha: pecas.rainha += 1 });
+                    setPieces({ ...pieces, rainha: pieces.rainha += 1 });
 
                 if(row === '6')
-                    setPecas({ ...pecas, rei: pecas.rei += 1 });
+                    setPieces({ ...pieces, rei: pieces.rei += 1 });
             })
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [matriz]);
+    }, [matrix]);
+
+    function newMatrix() {
+        const newMatrix = [];
+        matrix.forEach(matrix => {
+            const arrMatrix = [];
+            for(let i = 1; i <= 4; i++) {
+                const randomNum = Math.floor(Math.random()* 7);
+                if(randomNum === 1){
+                    arrMatrix.push(0);
+                    arrMatrix.push(randomNum);
+                } else {
+                    arrMatrix.push(randomNum);
+                    arrMatrix.push(0);
+                }
+            }
+            
+
+            newMatrix.push(arrMatrix.join(' '));
+        });
+        setPieces({...objPieces});
+        setMatrix(newMatrix);
+    }
 
     return(
         <>
@@ -62,8 +85,8 @@ export default function SecondChallenge() {
                     </thead>
                     <tbody>
                     {
-                        matriz.map((matriz, index) => {
-                            const numbersMatrix = matriz.split(' ');
+                        matrix.map((matrix, index) => {
+                            const numbersMatrix = matrix.split(' ');
                             return (
                                 <tr key={index}>
                                     {numbersMatrix.map((numbers, index) => numbers !== '0' 
@@ -76,15 +99,17 @@ export default function SecondChallenge() {
                     </tbody> 
                 </table>
 
+                <button className="btn-random-matrix" onClick={newMatrix}>Gerar novo tabuleiro</button>
+
                 <footer className="chess-box__result">
                     <h3 className="subtitle">Resultado</h3>
                     <ul className="chess-box__list-pieces">
-                        <li>Peão: {pecas.peao}</li>
-                        <li>Bispo: {pecas.bispo}</li>
-                        <li>Cavalo: {pecas.cavalo}</li>
-                        <li>Torre: {pecas.torre}</li>
-                        <li>Rainha: {pecas.rainha}</li>
-                        <li>Rei: {pecas.rei}</li>
+                        <li>Peão: {pieces.peao}</li>
+                        <li>Bispo: {pieces.bispo}</li>
+                        <li>Cavalo: {pieces.cavalo}</li>
+                        <li>Torre: {pieces.torre}</li>
+                        <li>Rainha: {pieces.rainha}</li>
+                        <li>Rei: {pieces.rei}</li>
                     </ul>
                 </footer>
             </main>

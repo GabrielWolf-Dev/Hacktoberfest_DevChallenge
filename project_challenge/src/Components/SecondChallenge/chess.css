@@ -21,3 +21,18 @@
     margin: 16px 0;
     font-size: 1.25rem;
 }
+
+.btn-random-matrix {
+    width: 100%;
+    max-width: 140px;
+    height: 42px;
+    border-radius: 12px;
+    background-color: var(--blue);
+    color: var(--white);
+    transition: ease-out .3s;
+}
+
+.btn-random-matrix:hover {
+    background-color: var(--blue-light);
+    color: var(--black);
+}
