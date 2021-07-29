@@ -72,15 +72,7 @@
     width: 100%;
     max-width: 400px;
     margin: 120px auto 0 auto;
-    border-collapse: collapse;
 }
-
-td, th {
-    border: 2px solid var(--yellow);
-    padding: 16px;
-    text-align: center;
-    color: var(--white);
-  }
 
 .menu-quiz__warning-loaderboards {
     width: 100%;

@@ -1,0 +1,23 @@
+.chess-box {
+    margin: 48px auto;
+}
+
+.chess-box__table-chess {
+    margin: 48px auto;
+    color: var(--white);
+    font-size: 1.25rem;
+}
+
+.chess-box__result {
+    width: 100%;
+    max-width: 300px;
+    margin: 32px auto;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: var(--green);
+}
+
+.chess-box__list-pieces {
+    margin: 16px 0;
+    font-size: 1.25rem;
+}

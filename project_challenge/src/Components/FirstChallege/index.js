@@ -68,7 +68,7 @@ export default function FirstChallenge() {
                         <input
                             className="menu-quiz__input-name" 
                             title="O nome deve conter somente letras e no máximo 15 caracteres" 
-                            pattern="[A-Za-z]{1,15}"
+                            pattern="[A-Za-zçã\s]{1,15}"
                             required 
                             type="text" 
                             id="name"
