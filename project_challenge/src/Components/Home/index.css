@@ -50,7 +50,25 @@
     background-color: var(--blue);
 }
 
-/* Animations */
+/*-- Mobile --*/
+@media (max-width: 768px) {
+    .home_challenges {
+        display: block;
+        margin-bottom: 48px;
+    }
+
+    .home_challenges:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 568px) {
+    .home__desc {
+        text-align: left;
+    }
+}
+
+/*-- Animations --*/
 
 @keyframes backgroundTransition {
     0% {

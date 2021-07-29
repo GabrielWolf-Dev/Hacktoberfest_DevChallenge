@@ -47,6 +47,10 @@ td, th {
   font-size: 16px;
 }
 
+@media (max-width: 768px) { :root { font-size: 14px; } }
+
+@media (max-width: 568px) { :root { font-size: 12px; } }
+
 /* Default Styles */
 
 .container {

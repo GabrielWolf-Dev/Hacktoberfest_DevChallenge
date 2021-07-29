@@ -25,6 +25,9 @@
 .header__title {
     font-size: 1.8rem;
     color: var(--yellow);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .header__dropdown {
@@ -52,6 +55,18 @@
 
 .header__link:hover {
     color: var(--blue);
+}
+
+/*-- Mobile --*/
+@media (max-width: 768px) {
+    .header__title {
+        display: none;
+    }
+
+    .header__home-link {
+        width: 32px;
+        height: 32px;
+    }
 }
 
 /*-- Classes actives --*/

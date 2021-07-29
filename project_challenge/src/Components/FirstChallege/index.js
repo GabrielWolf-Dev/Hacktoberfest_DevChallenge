@@ -113,7 +113,7 @@ export default function FirstChallenge() {
             <main className={isStarted ? 'quiz quiz--active' : 'quiz'}>
                 <button onClick={backMenu} className="quiz__btn-back">Voltar no Menu</button>
 
-                <article>
+                <article className="quiz__box-progress">
                     <label className="quiz__label-progress" htmlFor="progressBar">Progresso</label>
                     <progress className="quiz__progress" id="progressBar" value={(currentQuest + 1) * 10} max={questions.length * 10} />
                 </article>

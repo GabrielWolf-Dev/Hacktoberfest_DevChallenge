@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 48px 0;
+    padding: 48px 2%;
 }
 
 .menu-quiz__form {
@@ -72,6 +72,7 @@
     width: 100%;
     max-width: 400px;
     margin: 120px auto 0 auto;
+    padding: 0 2%;
 }
 
 .menu-quiz__warning-loaderboards {
@@ -155,8 +156,10 @@
 }
 
 .anim-true {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     height: 600px;
+    padding: 0 2%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -172,7 +175,7 @@
     transition: all ease-out .3s;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 3%;
 }
 
 .quiz__btn-back:hover {
@@ -181,13 +184,17 @@
 
 .quiz__question-box {
     width: 100%;
-    margin: 48px 0;
+    margin: 48px auto;
     padding: 16px 2%;
     border: 3px solid var(--yellow);
     border-radius: 12px;
+}    
+
+.quiz__question-box__flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
 }
 
 .quiz__question-box__img {
@@ -231,6 +238,66 @@
     opacity: 0.8;
 }
 
+/*-- Mobile --*/
+
+@media (max-width: 1078px) {
+    /*-- Quiz --*/
+    .quiz__question-box__flex {
+        flex-direction: column-reverse;
+    }
+
+    .quiz__question-box__img {
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .quiz-content {
+        max-width: 400px;
+    }
+
+    .menu-quiz__main {
+        padding: 0 2%;
+        flex-direction: column-reverse;
+        gap: 32px;
+    }
+
+    .menu-quiz__img {
+        max-width: 150px;
+    }
+
+    .menu-quiz__input-sub {
+        display: block;
+        margin: auto;
+    }
+
+    .quiz__box-progress {
+        margin-top: 32px;
+    }
+
+    .menu-quiz__warning-loaderboards {
+        max-width: 400px;
+    }
+
+    /*-- Quiz --*/
+    .quiz__btn-back {
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 32px;
+    }
+
+    .anim-true {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 578px) {
+    .quiz-content { border-bottom: 0; }
+
+    .menu-quiz__warning-loaderboards {
+        max-width: 300px;
+    }
+}
 /*-- Classes Actives --*/
 
 .menu-quiz--hide {

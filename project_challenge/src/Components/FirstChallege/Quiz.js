@@ -60,8 +60,8 @@ export default function Quiz({
     return(
         <>
             <aside className="quiz__question-box">
-                <div>
-                    <h2 className="subtitle">{question}</h2>
+                <h2 className="subtitle">{question}</h2>
+                <div className="quiz__question-box__flex">
                     <form onSubmit={questionSub} className="quiz__question-box__form">
                         {
                             alternatives.map((alternative, index) => {
@@ -87,9 +87,9 @@ export default function Quiz({
                             />
                         }
                     </form>
-                </div>
 
-                <img className="quiz__question-box__img" src={image} alt={alt} />
+                    <img className="quiz__question-box__img" src={image} alt={alt} />
+                </div>
             </aside>
             <Player
                 autoplay

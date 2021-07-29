@@ -1,8 +1,11 @@
 .chess-box {
     margin: 48px auto;
+    padding: 0 2%;
 }
 
 .chess-box__table-chess {
+    width: 100%;
+    max-width: 450px;
     margin: 48px auto;
     color: var(--white);
     font-size: 1.25rem;
@@ -35,4 +38,10 @@
 .btn-random-matrix:hover {
     background-color: var(--blue-light);
     color: var(--black);
+}
+
+/*-- Mobile --*/
+
+@media (max-width: 768px) {
+    .chess-box__table-chess { max-width: 400px; }
 }
