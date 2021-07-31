@@ -50,6 +50,28 @@
     background-color: var(--blue);
 }
 
+.home__footer {
+    width: 100%;
+    margin: 32px 0;
+    padding: 16px 2%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.home__footer__links {
+    color: var(--white);
+    font-size: 1.15rem;
+    transition: ease-out .3s;
+}
+
+.home__footer__links:hover { color: var(--blue-light); }
+
 /*-- Mobile --*/
 @media (max-width: 768px) {
     .home_challenges {

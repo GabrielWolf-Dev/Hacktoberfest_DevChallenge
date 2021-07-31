@@ -101,7 +101,7 @@ export default function ThirdChallenge() {
                 </form>
 
                 <aside className="words-validate">
-                    <h3 className="subtitle words-validate__title">Palavras válidas no campo de pesquisa acima</h3>
+                    <h3 className="subtitle words-validate__title">Palavras válidas no campo de pesquisa abaixo:</h3>
                     <ul className="words-validate__list-word">
                         {
                            wordsValidate.map((word, index) => {
