@@ -95,7 +95,7 @@ export default function ThirdChallenge() {
                 <h2 className="title">Galeria de artes</h2>
 
                 <form className="search-photos" onSubmit={searchTypePhotos}>
-                    <input className="seach-photos__input" name="searchTypePhoto" type="text" placeholder="Pesquisar outras obras" />
+                    <input required className="seach-photos__input" name="searchTypePhoto" type="text" placeholder="Pesquisar outras obras" />
                     <input className="seach-photos__sub" type="submit" value="Pesquisar" />
                     <div className="seach-photos__input-invalidate">Pesquisa invalida</div>
                 </form>
