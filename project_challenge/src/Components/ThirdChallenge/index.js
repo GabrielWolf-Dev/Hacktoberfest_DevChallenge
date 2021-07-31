@@ -6,9 +6,10 @@ import './gallery.css';
 require('dotenv').config();
 
 export default function ThirdChallenge() {
+    const urlApi = 'https://api.pexels.com/v1/search?query=artes&locale=pt-BR&page=1&per_page=6';
     const [photos, setPhotos] = useState([]);
-    const [nextPage, setNextPage] = useState();
-    const [url, setUrl] = useState('https://api.pexels.com/v1/search?query=artes&locale=pt-BR&page=1&per_page=2');
+    const [nextPage, setNextPage] = useState(urlApi);
+    const [url, setUrl] = useState(urlApi);
     const wordsValidate = [
         "Arte",
         "Teatro",
@@ -16,44 +17,53 @@ export default function ThirdChallenge() {
         "Pintura",
         "Desenho",
         "Artes cênicas",
+        "Artes cenicas",
         "Música",
-        "Dança"
+        "Dança",
+        "Danca"
     ];
 
     useEffect(() => {
-        const animLoad = document.querySelector('.anim-load');
+        (async function(){
+            try {
+                const resStruture = {
+                    method: "GET",
+                    headers: {
+                        'content-type': 'application/json',
+                        'Authorization': process.env.REACT_APP_API_PEXELS
+                    }
+                }
+                const res = await fetch(url, resStruture);
+                const data = await res.json();
+                setNextPage(data.next_page);
+                setPhotos((photos) => [...photos, ...data.photos]); // Regra do react quando se utiliza array de objetos, array de arrays ou objetos somente.
+            } catch(error) {
+                const intersection = document.querySelector('.intersection-box');
+                const errorMessage = document.querySelector('.error-fetch');
+                intersection.style.display = 'none';
+                errorMessage.style.display = 'block';
 
+                throw new Error(error);
+            }
+        })();
+    }, [url]);
+
+    useEffect(() => {
+        const animLoad = document.querySelector('.anim-load');
         const intersectionObserver = new IntersectionObserver((entries) => {
             if(entries.some(entry => entry.isIntersecting)) {
                 animLoad.classList.add('anim-load--active');
+
                 setTimeout(() => {
-                    setUrl(nextPage);
+                    setUrl(nextPage); 
                     animLoad.classList.remove('anim-load--active');
-                }, 1000)
+                }, 2000);
             }
         });
 
         intersectionObserver.observe(document.querySelector('.intersection-box'));
         return () => intersectionObserver.disconnect(); // Quando o componente morrer no ciclo de vida
-    }, []);
-
-    useEffect(() => {
-        (async function(){
-            const resStruture = {
-                method: "GET",
-                headers: {
-                    'content-type': 'application/json',
-                    'Authorization': process.env.REACT_APP_API_PEXELS
-                }
-            }
-            const res = await fetch(url, resStruture);
-            const data = await res.json();
-            
-            setPhotos((photos) => [...photos, ...data.photos]); // Regra do react quando se utiliza array de objetos, array de arrays ou objetos somente.
-            setNextPage(data.next_page);
-        })();
-    }, [url]);
-    console.log(photos);
+    }, [nextPage]);
 
     function searchTypePhotos(e) {
         e.preventDefault();
@@ -67,8 +77,9 @@ export default function ThirdChallenge() {
             return acc;
         }, false);
         
-       if(isWordValidated){//15
-            setUrl(`https://api.pexels.com/v1/search?query=${inputValue}&locale=pt-BR&per_page=2`);
+       if(isWordValidated){
+            setPhotos([]);
+            setUrl(`https://api.pexels.com/v1/search?query=${inputValue}&locale=pt-BR&per_page=6`);
             message.classList.remove('seach-photos__input-invalidate--active');
        } else {
             message.classList.add('seach-photos__input-invalidate--active');
@@ -123,11 +134,21 @@ export default function ThirdChallenge() {
                 </main>
             </section>
             
+            <aside className="error-fetch">
+                <h4 style={{ marginBottom: '24px' }} className="subtitle">Não foi possível encontrar mais fotos :(</h4>
+                    <Player
+                    autoplay
+                    loop
+                    src={process.env.REACT_APP_LOTTIE_ERROR}
+                    style={{ with: '100%', maxWidth: '200px', height: '200px' }}d
+                    speed="1.5"
+                ></Player>
+            </aside>
             <div className="intersection-box"></div>
             <Player
                 autoplay
                 loop
-                src={process.env.REACT_APP_LOTTIE_LOAD} /* https://lottiefiles.com/user/120131*/
+                src={process.env.REACT_APP_LOTTIE_LOAD}
                 className="anim-load"
                 speed="1.5"
             ></Player>

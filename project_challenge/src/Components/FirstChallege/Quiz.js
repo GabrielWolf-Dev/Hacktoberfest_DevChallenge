@@ -93,7 +93,7 @@ export default function Quiz({
             </aside>
             <Player
                 autoplay
-                src={animResUser /* Não esquecer de contribuir https://lottiefiles.com/rohit e https://lottiefiles.com/aalvs */}
+                src={animResUser}
                 className="anim-true"
                 speed="1.5"
             ></Player>
